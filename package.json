@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node api/test/run.js"
+    "test": "node api/test/run.js",
+    "watch-css": "autoless static/styles static/styles"
   },
   "repository": {
     "type": "git",
