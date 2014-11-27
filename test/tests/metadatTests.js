@@ -37,7 +37,7 @@ module.exports.createMetadat = function (test, common) {
     common.testPOST(t, '/api/metadat', data,
       function (err, api, res, json, done) {
         t.ifError(err)
-        t.equal(res.statusCode, 400, 'throws 400')
+        t.equal(json.status, 'error', 'throws error')
         data.owner_id = 'karissa'
         done()
       }
@@ -55,21 +55,21 @@ module.exports.createMetadat = function (test, common) {
           json: data
         }, function (err, res, json) {
           t.ifError(err)
-          t.equal(res.statusCode, 400, 'throws 400')
+          t.equal(json.status, 'error', 'throws error')
           done()
         })
 
       })
   })
 
-  test('missing required field throws 400', function(t) {
+  test('missing required field throws error', function(t) {
     var data = TEST_DAT
     delete data['owner_id']
 
     common.testPOST(t, '/api/metadat', data,
       function (err, api, res, json, done) {
         t.ifError(err)
-        t.equal(res.statusCode, 400, 'throws 400')
+        t.equal(json.status, 'error', 'json status is error')
         data['owner_id'] = 'karissa'
         done()
       }
