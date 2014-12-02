@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run watch & npm run watch-css & npm run server",
     "server": "nodemon server.js -e js,css,html",
-    "test": "node test/run.js | tap-spec",
+    "test": "node api/test/run.js | tap-spec & browserify -t ractivate app/test/index.js | tape-run",
     "watch": "watchify -t ractivate app/index.js -o static/js/bundle.js",
     "watch-css": "autoless static/styles"
   },
@@ -34,6 +34,7 @@
     "fulltext-engine": "^1.1.1",
     "github-oauth": "^0.2.0",
     "is-url": "^1.1.0",
+    "jquery-browserify": "^1.8.1",
     "level-prebuilt": "^0.18.0",
     "level-queryengine": "^3.0.1",
     "level-restful": "1.0.1",

@@ -4,8 +4,8 @@ var st = require("st")
 var request = require('request').defaults({json: true})
 var rimraf = require('rimraf')
 
-var Server = require('../api')
-var defaults = require('../api/defaults.js')
+var Server = require('..')
+var defaults = require('../defaults.js')
 
 module.exports = function() {
   var common = {}
